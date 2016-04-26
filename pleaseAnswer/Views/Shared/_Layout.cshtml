@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="西南财经大学，请回答2016">
+    <title>请回答 2016</title>
+    @*<link href="~/Content/Reset.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+    @Styles.Render("~/bundles/styles")
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="nav-head m">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="logo" href="">
+                    <img src="~/Img/common/logo.png">
+                </a>
+                <a class="navbar-brand" href="#">GHY.CN</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="http://www.ghy.cn/swufenews/">新闻</a>
+                    </li>
+                    <li>
+                        <a href="http://www.ghy.cn/idea08/">思想</a>
+                    </li>
+                    <li>
+                        <a href="http://www.ghy.cn/study09/">学习</a>
+                    </li>
+                    <li>
+                        <a href="http://www.ghy.cn/life/">生活</a>
+                    </li>
+                    <li>
+                        <a href="http://www.ghy.cn/lit08/">文苑</a>
+                    </li>
+                    <li>
+                        <a href="http://www.ghy.cn/music09/">音乐</a>
+                    </li>
+                    <li>
+                        <a href="http://www.ghy.cn/movie11/">电影</a>
+                    </li>
+                    <li>
+                        <a href="http://soft.ghy.cn/">软件</a>
+                    </li>
+                    <li>
+                        <a href="http://bbs.ghy.cn/">草堂茗香</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+        @RenderBody()
+    
+    <footer class="clearfix row">
+        <div class="foot_left left  col-xs-5">
+            <img src="~/Img/common/logo.png">
+            <h4>光华园|GHY.CN</h4>
+        </div>
+        <div class="foot_right right col-xs-7">
+            <h5 style="text-align: right;">
+                Copyright 2001-2016 GHY.cn All rights reserved. 蜀ICP备07004602号<br>
+                西南财经大学党委宣传统战部 前进动力工作室 TEL:028—87092700
+            </h5>
+        </div>
+    </footer>
+
+    @*<script src="~/Scripts/jquery-2.2.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>*@
+    @Scripts.Render("~/bundles/scripts")
+    <script type="text/javascript">
+        $('#myTabs a:first').tab('show');           //初始化显示哪个tab
+        $('#myTabs a').click(function (e) {
+            e.preventDefault();                     //阻止a链接的跳转行为
+            $(this).tab('show');                    //显示当前选中的链接及关联的content
+        });
+
+        $('#quesPill a[href="#quesTab_0"]').tab('show');
+        $('#quesPill a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+
+        //$('#pillNext a').click(function (e){
+        //    e.preventDefault()
+        //    $('#quesPill a:first').tab('show');
+        //});
+
+        // 前页后页
+        $('#pillPrev a').click(function (e) {
+            e.preventDefault();
+            var numObj = document.getElementById("quesPill").children;
+            for (var i = 0; i < numObj.length; i++) {
+                if (numObj[i].className == "active") {
+                    $('#quesPill li:eq(' + (i - 1) + ') a').tab('show');
+                    break;
+                }
+            }
+        });
+        $('#pillNext a').click(function (e) {
+            e.preventDefault();
+            var numObj = document.getElementById("quesPill").children;
+            for (var i = 0; i < numObj.length; i++) {
+                if (numObj[i].className == "active") {
+                    $('#quesPill li:eq(' + (i + 1) + ') a').tab('show');
+                    break;
+                }
+            }
+        });
+        $('.p_pic').click(function () {
+            if (confirm("确定?")) {
+                $('#player_form').submit()
+            }
+            else {
+            }
+        })
+    </script>
+</body>
+</html>

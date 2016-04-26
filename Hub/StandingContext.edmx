@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StandingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PlayerBank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="School" Type="nchar" MaxLength="10" />
+          <Property Name="Motto" Type="nchar" MaxLength="10" />
+          <Property Name="Vote" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Standing.dbo.QuesBank”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="QuesBank">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Class" />
+            <PropertyRef Name="Ques" />
+            <PropertyRef Name="OptionA" />
+            <PropertyRef Name="OptionB" />
+            <PropertyRef Name="OptionC" />
+            <PropertyRef Name="OptionD" />
+            <PropertyRef Name="Answer" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Class" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ques" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OptionA" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OptionB" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OptionC" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OptionD" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Answer" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VoteBank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VoterNum" Type="int" Nullable="false" />
+          <Property Name="PlayerID" Type="int" Nullable="false" />
+          <Property Name="VoteTime" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="StandingModelStoreContainer">
+          <EntitySet Name="PlayerBank" EntityType="Self.PlayerBank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VoteBank" EntityType="Self.VoteBank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuesBank" EntityType="Self.QuesBank" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [QuesBank].[ID] AS [ID], 
+    [QuesBank].[Class] AS [Class], 
+    [QuesBank].[Ques] AS [Ques], 
+    [QuesBank].[OptionA] AS [OptionA], 
+    [QuesBank].[OptionB] AS [OptionB], 
+    [QuesBank].[OptionC] AS [OptionC], 
+    [QuesBank].[OptionD] AS [OptionD], 
+    [QuesBank].[Answer] AS [Answer]
+    FROM [dbo].[QuesBank] AS [QuesBank]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StandingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PlayerBank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="School" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Motto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Vote" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VoteBank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VoterNum" Type="Int32" Nullable="false" />
+          <Property Name="PlayerID" Type="Int32" Nullable="false" />
+          <Property Name="VoteTime" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="QuesBank">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Class" />
+            <PropertyRef Name="Ques" />
+            <PropertyRef Name="OptionA" />
+            <PropertyRef Name="OptionB" />
+            <PropertyRef Name="OptionC" />
+            <PropertyRef Name="OptionD" />
+            <PropertyRef Name="Answer" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Class" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ques" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OptionA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OptionB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OptionC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OptionD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PlayerBank" EntityType="Self.PlayerBank" />
+          <EntitySet Name="VoteBank" EntityType="Self.VoteBank" />
+          <EntitySet Name="QuesBank" EntityType="Self.QuesBank" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StandingModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="PlayerBank">
+            <EntityTypeMapping TypeName="StandingModel.PlayerBank">
+              <MappingFragment StoreEntitySet="PlayerBank">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Motto" ColumnName="Motto" />
+                <ScalarProperty Name="Vote" ColumnName="Vote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VoteBank">
+            <EntityTypeMapping TypeName="StandingModel.VoteBank">
+              <MappingFragment StoreEntitySet="VoteBank">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="VoterNum" ColumnName="VoterNum" />
+                <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+                <ScalarProperty Name="VoteTime" ColumnName="VoteTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuesBank">
+            <EntityTypeMapping TypeName="StandingModel.QuesBank">
+              <MappingFragment StoreEntitySet="QuesBank">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Ques" ColumnName="Ques" />
+                <ScalarProperty Name="OptionA" ColumnName="OptionA" />
+                <ScalarProperty Name="OptionB" ColumnName="OptionB" />
+                <ScalarProperty Name="OptionC" ColumnName="OptionC" />
+                <ScalarProperty Name="OptionD" ColumnName="OptionD" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

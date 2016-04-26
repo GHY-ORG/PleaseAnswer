@@ -1,0 +1,25 @@
+﻿@model List<pleaseAnswer.Models.PlayerModel>
+
+@{
+    ViewBag.Title = "登录页面";
+}
+@System.Web.Optimization.Styles.Render("~/bundles/answer_styles")
+<div class="head clearfix">
+    <img class="head_img" src="~/img/common/headimg.jpg">
+</div>
+<div class="sec">
+    <div class="clearfix">
+        <a class="grey back" href="~/Home">回到首页</a>
+    </div>
+
+    @using (Html.BeginForm("Index", "Player", FormMethod.Post, new { @class = "form-horizontal", id = "login_form", role = "form" })) { 
+    <div class="content answer_content container">
+            <h2 style="text-align:center">学号登录</h2>
+        <div class="white box login intro">
+            <div class="clearfix f_none"><p class="left">学号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><input class="left" type="text" name="username" placeholder="请输入学号" size="13"></div><br />
+            <div class="clearfix f_none"><p class="left">上网密码&nbsp;&nbsp;&nbsp;</p><input class="left" type="password" name="userPassword" size="20" placeholder="请输入上网密码"></div><br />
+            <div class="clearfix f_none"><input class="button" type="submit" value="提交" name="B1">   <input class="button" type="reset" value="重置" name="B2"></div>
+        </div>
+    </div>
+    }
+</div>

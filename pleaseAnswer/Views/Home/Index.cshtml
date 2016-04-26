@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="head clearfix">
+		<img class="head_img" src="~/img/common/indeximg.jpg">
+        <a href="~/home/indexm" class="jump">
+            <p>手机用户点我点我</p>
+        </a>
+        <video class="video" width="36%" height="auto" controls >
+            @*<source src="movie.ogg" type="video/ogg">*@
+            <source src="~/Untitled.mp4" type="video/mp4">
+            @*<source src="movie.webm" type="video/webm">*@
+            <object data="~/Untitled.mp4" width="36%" height="auto">
+                <embed width="36%" height="auto" src="~/Untitled.mp4">
+            </object>
+        </video>
+	</div>
+	<div class="main container">
+		<ul class="nav nav-tabs row" role="tablist">
+			<li role="presentation" class="active col-xs-4">
+				<a class="row clearfix tab_left home" href="#home" aria-controls="home" role="tab" data-toggle="tab">
+					<img src="~/img/common/rules.png">
+					<h1 class="blue">赛制介绍</h1>
+                    <div class="sanjiao"></div>
+				</a>
+			</li>
+			<li role="presentation" class="col-xs-4">
+				<a class="clearfix tab_middle" href="~/player" aria-controls="profile" role="tab" data-toggle="tab">
+					<img src="~/img/common/players.png">
+					<h1 class=" grey">选手风采</h1>
+					<h5 class=" ">(敬请期待)</h5>
+				</a>
+			</li>
+			<li role="presentation" class="col-xs-4">
+                <a class="clearfix" href="#start" aria-controls="start" role="tab" data-toggle="tab">
+                    <img src="~/img/common/answer.png">
+                    <h1 class="blue">放我答题！</h1>
+                </a>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="home">
+				<div class="content">
+					<div class="square left"></div>
+					<div class="title left blue">大赛简介</div>
+					<br>
+					<div class="white box intro">
+						<p style="text-indent:2em;">
+                            由党委宣传统战部光华园网站主办的“请回答，2016”比赛是西南财经大学第一届大型益智类知识竞答比赛。比赛设置书影音体、时事动态、社会生活、自然科技等多类题目，对西财最具智慧的头脑们发起全方位的挑战，展现西财人求知的风采。浩瀚知识，不应囿于GPA；学海无涯，追寻真理的脚步不止。把世界装进你的大脑，2016，请你回答。
+						</p>
+					</div>
+					<div class="square left"></div>
+					<div class="title left blue">赛制介绍</div>
+					<br>
+					<div class="white box current fir row">
+                        <div class="time col-xs-2 f_18">初赛</div>
+						<div class="text col-xs-8">时间：4月9日－4月10日&nbsp;&nbsp;&nbsp;&nbsp;地点：情人坡<br />
+                        25题即答即走 等你脱颖而出</div>
+					</div>
+					<div class="white box normal middle row">
+                        <div class="time col-xs-2 f_18">复赛</div>
+						<div class="text col-xs-8">时间：4月13日&nbsp;&nbsp;&nbsp;&nbsp;地点：济民广场<br />
+                            五人小组 多题较量 三次机会 一人胜出</div>
+					</div>
+					<div class="white box normal middle row">
+						<div class="time col-xs-2 f_18">半决赛</div>
+						<div class="text col-xs-8">时间：4月16日&nbsp;&nbsp;&nbsp;&nbsp;地点：国报厅<br />
+                            分组PK 针锋较量 携手晋级 一战到底</div>
+					</div>
+					<div class="white box normal middle row">
+                        <div class="time col-xs-2 f_18">复活赛</div>
+						<div class="text col-xs-8">时间:4月20日<br />
+                            人气选手重返舞台 后来居上 精彩对决 席卷决赛</div>
+					</div>
+					<div class="white box normal final row">
+                        <div class="time col-xs-2 f_18">决赛</div>
+						<div class="text col-xs-8">时间：4月23日晚&nbsp;&nbsp;&nbsp;&nbsp;地点：800人厅<br />
+                            终极交锋 两轮决胜 三甲荣光 虚位以待</div>
+					</div>
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="start">
+				<div class="content">
+					<div class="clearfix">
+						<img src="~/img/common/answer.png">
+						<h1 class="blue">放我答题！</h1>
+					</div>
+					<div class="white box intro">
+						<p style="text-align:center">
+                            敢不敢来试试我们题库的深浅？不是上知天文下知地理的不要轻易点开哟~
+						</p>
+						<a href="~/Answer" class="chanllenge">
+						<p>接受挑战</p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

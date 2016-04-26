@@ -1,0 +1,153 @@
+﻿@model List<pleaseAnswer.Models.QuesModel>
+
+@{
+    ViewBag.Title = "答题";
+}
+@System.Web.Optimization.Styles.Render("~/bundles/answer_styles")
+<div class="head clearfix">
+    <img class="head_img" src="~/img/common/headimg.jpg">
+</div>
+<div class="sec">
+    <div class="clearfix">
+        <img src="~/img/common/answer.png">
+        <h1 class="blue">放我答题！</h1>
+        <a class="grey back" href="~/Home">回到首页</a>
+    </div>
+
+
+    @using (Html.BeginForm("Result", "Answer", FormMethod.Post, new { @class = "form-horizontal", id = "answer_form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+        <div class="content answer_content container">
+
+            <!-- 计时 -->
+            <div id="time_content">
+                <div id="my_timer">
+                    <span class="timeIndex" id="timer_minute" data-index="5"></span>
+                    <span id="dot"></span>
+                    <span class="timeIndex" id="timer_second_01" data-index="0"></span>
+                    <span class="timeIndex" id="timer_second_02" data-index="0"></span>
+                </div>
+                <script>
+                    // 设置结束时间
+                    var minute = 5;
+                    var second_01 = 0;
+                    var second_02 = 0;
+                    var timer = document.getElementById("my_timer");
+                    var timer_minute = document.getElementById("timer_minute");
+                    var timer_second01 = document.getElementById("timer_second_01");
+                    var timer_second02 = document.getElementById("timer_second_02");
+                    (function startTimer() {
+                        /*setInterval() 间隔指定的毫秒数不停地执行指定的代码*/
+                        myVar = setInterval(function () {
+                            myTimer()
+                        }, 1000);
+                    })();
+
+                    function myTimer() /* 定义一个得到本地时间的函数*/ {
+                        if (second_02 == 0) {
+                            second_02 = 9;
+                            if (second_01 == 0) {
+                                second_01 = 5;
+
+                                if (minute == 0) {
+                                    stopTimer();
+                                } else {
+                                    minute -= 1;
+                                }
+                            } else {
+                                second_01 -= 1;
+                            }
+                        } else {
+                            second_02 -= 1;
+                        }
+                        timer_second02.setAttribute("data-index", second_02);
+                        timer_second01.setAttribute("data-index", second_01);
+                        timer_minute.setAttribute("data-index", minute);
+                    }
+
+
+                    function stopTimer() { /* clearInterval() 方法用于停止 setInterval() 方法执行的函数代码*/
+                        document.getElementById("answer_form").submit();
+                    }
+                </script>
+            </div>
+
+            <!-- 提交 -->
+            <div id="submit_content">
+                <input type="submit" value="提交" class="btn" />
+            </div>
+
+            <!-- 题目 -->
+            <div class="tab-content">
+                @{
+        var num = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    num++;
+                    <div role="tabpanel" class="tab-pane" id="quesTab_@Model.IndexOf(item)">
+                        <div class="row box">
+                            <div class="quesTab_group">
+                                <p class="ques">
+                                    @num、 @Html.DisplayFor(modelItem => item.Ques)
+                                </p>
+
+                                <input id="A_@Model.IndexOf(item)" name="ques_@Model.IndexOf(item)" type="radio" value="A">
+                                <label for="A_@Model.IndexOf(item)" class="col-md-6">@Html.DisplayFor(modelItem => item.OptionA)</label>
+
+                                <input id="B_@Model.IndexOf(item)" name="ques_@Model.IndexOf(item)" type="radio" value="B">
+                                <label for="B_@Model.IndexOf(item)" class="col-md-6">@Html.DisplayFor(modelItem => item.OptionB)</label>
+
+                                <input id="C_@Model.IndexOf(item)" name="ques_@Model.IndexOf(item)" type="radio" value="C">
+                                <label for="C_@Model.IndexOf(item)" class="col-md-6">@Html.DisplayFor(modelItem => item.OptionC)</label>
+
+                                <input id="D_@Model.IndexOf(item)" name="ques_@Model.IndexOf(item)" type="radio" value="D">
+                                <label for="D_@Model.IndexOf(item)" class="col-md-6">@Html.DisplayFor(modelItem => item.OptionD)</label>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <!-- 页码 -->
+            <div class="nav_content">
+
+                <div id="pillPrev">
+                    <a href="#Prev" aria-label="Prev">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </div>
+
+
+                <ul class="nav nav-pills" id="quesPill" role="tablist">
+                    @{
+        var j = 0;
+                    }
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        j++;
+                        <li role="presentation" class="">
+                            <a href="#quesTab_@i" aria-controls="quesTab_@i" role="tab" data-toggle="tab">
+                                @j
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+
+                <div id="pillNext">
+                    <a href="#Next" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+
+    }
+</div>

@@ -1,0 +1,328 @@
+﻿a:hover,a:focus{text-decoration: none;}
+.grey{color: #8D8D8D;}
+.blue{color: #337ab7;}
+.left,h1,img{float: left;}
+.right{float: right;}
+.login .f_none{float:none;}
+img{height: 100%;}
+.pl_40{padding-left: 15%;}
+.clearfix:after {display: block;overflow: hidden;clear: both;height: 0;visibility: hidden;content: ".";}
+.ml_10{margin-left:10%;}
+h1,h2,h3,h4,h5,p,div{font-family:微软雅黑;}
+.f_18{font-size:18px;}
+.detail{margin:10px 0 0 0;}
+/*---------------------------nav+head------------------------------*/
+.nav-head{
+    width:960px;
+    margin:0 auto;
+}
+.navbar-inverse{opacity: 0.8;}
+.logo{
+	height:50px;
+	float: left;
+	margin:0 2px 0 20px;
+}
+.navbar-nav>li {
+    margin-right: 28px;
+}
+.head{
+	width: 100%;
+}
+.head_img{
+	width: 100%;
+	position: relative;
+	height: auto;
+	z-index: 1;
+}
+.video{
+	position: absolute;
+    float: left;
+    bottom:-170px;
+    left: 32%;
+	z-index: 2;
+	margin: 0 auto;
+}
+@media (min-width: 1400px) {
+    .video {
+        bottom:-50px;
+    }
+}
+/*---------------------------tab------------------------------*/
+.main{
+	margin: 0 auto 40px auto;
+	background-color: #eee;
+}
+.main.container{
+	width: 100%;
+	padding: 0;
+}
+.start_page{
+    width:70%;
+	margin: 4% auto;
+}
+.nav-tabs{border:none;}
+.tab_left.row{
+    margin-right: 9%;
+    float: right;
+}
+.tab_middle{
+    margin: 0px 20%;
+}
+.nav-tabs.row{
+	margin: 0 auto;
+}
+.nav-tabs li{
+	background-color: white;
+	padding-right: 0;
+}
+.nav-tabs li.active{
+	background-color: #eee;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{border:none;}
+.nav-tabs>li>a:hover{
+	background-color: #fff;
+	border-color: #fff;
+}
+.nav-tabs h1{
+	line-height: 2rem;
+	margin-left: 20px;
+	font-size: 2rem;
+	font-weight: bold;
+}
+.nav-tabs h5{
+	line-height: 50px;
+	margin-left: 20px;
+	color: #8D8D8D;
+    margin-bottom:0px;
+}
+.content{
+	width: 960px;
+	margin: 4% auto;
+}
+.content div{
+	float: left;
+}
+.box.intro{padding-top: 30px;padding-bottom: 1px;}
+.sanjiao{
+    width:0;
+    height:0;
+    border:10px solid transparent;
+    border-bottom:10px solid #337ab7;
+    float: left;
+    margin-top: 20px;
+    margin-left: 5px;
+    -moz-transition: all 0.8s ease 0s;
+    -webkit-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+}
+.home:hover .sanjiao{
+    border-top:10px solid #337ab7;
+    border-bottom:10px solid transparent;
+    margin-top: 30px;
+    -moz-transition: all 0.8s ease 0s;
+    -webkit-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+}
+/*--------------------------tab pane-------------------------------*/
+.square{
+	margin: 20px auto; 
+	width: 40px;
+	height: 40px;
+	margin-right:20px; 
+	float: left;
+	background-image: url(../img/common/ice.png);
+	background-size:  100% 100%;
+}
+.title{
+	line-height: 38px;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 20px auto; 
+}
+.white{
+	background-color: white;
+}
+.box{
+	padding: 0 30px 0 30px;
+	width: 100%;
+	margin-left: 20px;
+	min-height: 115px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+/*--------------------------timeline-------------------------------*/
+.box .time{
+	float: left;
+	padding:4% 0 4% 8%;
+	line-height: 6rem;
+}
+.box .text{
+	float: right;
+	padding: 4% 10% 2% 0;
+	line-height: 2rem;
+}
+.normal{color: #297FBF;}
+.current{color: white;}
+.normal.fir{
+	background-image: url(../img/common/fir_normal.png);
+}
+.current.fir{
+	background-image: url(../img/common/fir_mouse_on.png);
+}
+.normal.middle{
+	background-image: url(../img/common/middle_normal.jpg);
+}
+.current.middle{
+	background-image: url(../img/common/middle_mouse_on.jpg);
+}
+.normal.final{
+	background-image: url(../img/common/final_normal.png);
+}
+.current.final{
+	background-image: url(../img/common/final_mouse_on.png);
+}
+
+/*---------------------------footer------------------------------*/
+footer{
+	background-color: black;
+	width: 100%;
+	color: #9F9F9F;
+	padding:2% 15%;
+}
+footer.row{
+	margin: 0 auto;
+}
+.foot_left h4{
+	line-height:7rem;
+}
+.foot_right{
+}
+.foot_right h5{
+	line-height:3rem;
+}
+/*---------------------------二三级------------------------------*/
+.sec{  
+    width:960px;
+    margin:4% auto;
+}
+.chanllenge{
+	display: block;
+    width: 180px;
+    height: 85px;
+    padding: 30px 0;
+    margin: 40px auto;
+    background-color: #337ab7;
+    border-radius: 12px;
+    text-align: center;
+}
+.chanllenge p{
+	margin: 0 auto;
+	line-height: 20px;
+	font-size: 3rem;
+	color: white;
+}
+.back{
+    line-height: 80px;
+    font-size: 19px;
+}
+/*---------------------------选手页面------------------------------*/
+.player{
+    padding-bottom:30px;
+    background:white;
+    width:180px;
+    margin: 0 10px 30px 10px;
+    border-radius:6px;
+}
+img.p_pic{
+    float:left;
+    width:180px;
+    height:180px;
+    margin:0 auto;
+    border-radius: 6px;
+}
+.p_intro{
+    width:80%;
+    float:left;
+    margin:10px 10% 0 10%;
+}
+/*---------------------------登录页面------------------------------*/
+.login{
+    width:50%;
+    margin: 20px 32%;
+}
+.login p,.login .button{
+    font-size:18px;
+}
+.login input{
+    border-radius:2px;
+    width:200px;
+    height:26px;
+}
+.login .button{
+    width:80px;
+    margin:10px 0 0 62px;
+}
+/*---------------------------移动端------------------------------*/
+.m.nav li{height: 150px;}
+.m.nav li a{padding: 10px 8px;}
+.m li h1{
+    font-size:18px;
+    margin-left:0;
+    float:none;
+}
+.m li h5{
+    margin-left:0;
+    line-height:0;
+}
+.m.nav img{width:30%;}
+.content_m{
+    width:90%;
+    margin: 4% auto;
+}
+.content_m div{
+	float: left;
+}
+.box_m.intro{padding-top: 30px;padding-bottom: 1px;}
+.box_m{
+	padding: 0 20px 0 20px;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.box_m .time{
+	float: left;
+	padding:4% 0 4% 0;
+	line-height: 92px;
+}
+.box_m .text{
+	float: right;
+	padding: 4% 0 2% 0;
+	line-height: 2rem;
+}
+.col_8{
+    width:71%;
+    text-align: center;
+}
+.col_2{
+    width:28%;
+    text-align:center;
+}
+.current_m{
+    background-color:#337ab7;
+    color:white;
+}
+.current_m .col_2{
+    border-right:10px white solid;
+}
+.normal_m{
+    background-color:white;
+    color:#337ab7;
+}
+.normal_m .col_2{
+    border-right:10px #337ab7 solid;
+}
+footer.m{
+    width:100%;
+    padding: 3% 2%;
+}
+footer.m h4{font-size:16px;}

@@ -1,0 +1,71 @@
+﻿@model List<pleaseAnswer.Models.QuesModel>
+
+@{
+    ViewBag.Title = "答案及结果";
+}
+@Styles.Render("~/bundles/answer_styles")
+<div class="head clearfix">
+    <img class="head_img" src="~/img/common/headimg.jpg">
+</div>
+<div class="sec">
+    <div class="clearfix">
+        <img src="~/img/common/answer.png">
+        <h1 class="blue">放我答题！</h1>
+        <a class="grey back" href="~/Home">回到首页</a>
+    </div>
+
+    <div class="content" id="result_content">
+        <p class="score">
+            您的正确率是
+            <span>
+                @Session["accuracy"]&#37;
+            </span>
+            <br />愉快的试答就这样结束了，想要参赛证明自己还是要去现场答题哟~
+        </p>
+        <a href="~/Answer" id="again" class="btn">再做一次</a>
+        <h3 class="ckda">参考答案</h3>
+
+        <label class="myIcon">
+            <span class="zqda">正确答案</span>
+        </label>
+        <label class="myIcon">
+            <span class="cwda">错误答案</span>
+        </label>
+
+
+
+        <div id="solution_content">
+            @{
+                var num = 0;
+            }
+            @foreach (var item in Model)
+            {
+                num++;
+                <div id="quesTab_@Model.IndexOf(item)">
+                    <div class="row box">
+                        <div class="quesTab_group correct_@item.Answer userAnswer_@item.UserAnswer">
+                            <p class="ques">
+                                @num、 @Html.DisplayFor(modelItem => item.Ques)
+                                @if (item.UserAnswer == null || item.UserAnswer == "")
+                                {
+                                    <span class="red">(没有作答)</span>
+                                }
+                            </p>
+
+
+                            <label for="A_@Model.IndexOf(item)" class="col-md-6">@Html.DisplayFor(modelItem => item.OptionA)</label>
+
+                            <label for="B_@Model.IndexOf(item)" class="col-md-6">@Html.DisplayFor(modelItem => item.OptionB)</label>
+
+                            <label for="C_@Model.IndexOf(item)" class="col-md-6">@Html.DisplayFor(modelItem => item.OptionC)</label>
+
+                            <label for="D_@Model.IndexOf(item)" class="col-md-6">@Html.DisplayFor(modelItem => item.OptionD)</label>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <a style="margin-bottom:40px;" href="~/Answer" id="again" class="btn">再做一次</a>
+    </div>
+</div>

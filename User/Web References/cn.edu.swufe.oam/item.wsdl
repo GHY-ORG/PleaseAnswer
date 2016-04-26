@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:getUserAuthWSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:getUserAuthWSDL" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:getUserAuthWSDL">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="userAuthRequest">
+    <wsdl:part name="chgldapuser" type="xsd:string" />
+    <wsdl:part name="chgldappass" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="userAuthResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getUserRequest">
+    <wsdl:part name="chgldapuser" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getUserResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="getUserAuthWSDLPortType">
+    <wsdl:operation name="userAuth">
+      <wsdl:input message="tns:userAuthRequest" />
+      <wsdl:output message="tns:userAuthResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:input message="tns:getUserRequest" />
+      <wsdl:output message="tns:getUserResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="getUserAuthWSDLBinding" type="tns:getUserAuthWSDLPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="userAuth">
+      <soap:operation soapAction="http://oam.swufe.edu.cn/index.php/userAuth" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="http://oam.swufe.edu.cn/index.php/getUser" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="getUserAuthWSDL">
+    <wsdl:port name="getUserAuthWSDLPort" binding="tns:getUserAuthWSDLBinding">
+      <soap:address location="http://oam.swufe.edu.cn:8888/index.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

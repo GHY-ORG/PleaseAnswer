@@ -1,0 +1,44 @@
+﻿@model List<pleaseAnswer.Models.PlayerModel>
+
+@{
+    ViewBag.Title = "选手展示";
+}
+@System.Web.Optimization.Styles.Render("~/bundles/answer_styles")
+<div class="head clearfix">
+    <img class="head_img" src="~/img/common/headimg.jpg">
+</div>
+<div class="sec">
+    <div class="clearfix">
+        <img src="~/img/common/players.png">
+        <h1 class="blue">选手风采</h1>
+        <a class="grey back" href="~/Home">回到首页</a>
+    </div>
+
+    @using (Html.BeginForm("Index", "Player", FormMethod.Post, new { @class = "form-horizontal", id = "player_form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+            <div class="tab-content row">
+                @{
+                    var num = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    num++;
+                    <div class="player clearfix left" id="playertab_@Model.IndexOf(item)">
+                            <img class="p_pic" src="http://www.ghy.cn/2016answerme/images/@Url.Content(item.Pic)" alt="images" />
+                        <br />
+                        <div class="ml_10 p_intro">
+                            @*<img src="~/img/common/num.png" /><label for="D_@Model.IndexOf(item)" class="col-md-6">@Html.DisplayFor(modelItem => item.Vote)</label>*@
+                            <p class="detail"><span class="blue">姓名</span>&nbsp;&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.Name)</p>
+                            <p class="detail"><span class="blue">学院</span>&nbsp;&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.School)</p>
+                            <p class="detail"><span class="blue">方向</span>&nbsp;&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.Motto)</p>
+                            
+                        </div>
+                    </div>
+                }
+            </div>
+        @*<input type="submit" value="tijiaossssssssssssssssss"/>*@
+    }
+</div>

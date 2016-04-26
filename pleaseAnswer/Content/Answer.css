@@ -1,0 +1,409 @@
+﻿
+.content {
+    width:1024px;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+    .content.container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+/*----------------------- 页码部分  --------------------------*/
+.answer_content .nav_content {
+    width: 100%;
+    background-color: #cacaca;
+    margin-top:20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+    .answer_content .nav_content #pillPrev {
+        border-bottom-left-radius: 10px;
+    }
+
+    .answer_content .nav_content #pillNext {
+        border-bottom-right-radius: 10px;
+    }
+
+    .answer_content .nav_content #pillPrev,
+    .answer_content .nav_content #pillNext {
+        width: 12%;
+        display: block;
+        text-align: center;
+        font-size: 30px;
+        padding: 10px;
+    }
+
+    .answer_content .nav_content #pillPrev a,
+    .answer_content .nav_content #pillNext a{
+        display:block;
+        width:100%;
+    }
+        .answer_content .nav_content #pillPrev:hover,
+        .answer_content .nav_content #pillNext:hover {
+            background-color: #8d8d8d;
+        }
+
+    .answer_content .nav_content .nav-pills {
+        width: 76%;
+        float: left;
+        display: block;
+        text-align: center;
+        margin-top: 5px;
+        padding: 10px;
+    }
+
+.answer_content .nav-pills li {
+    margin-left: 20px;
+}
+
+.nav-pills li a {
+    background-color: white;
+    color: #4485c1;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 5px 0;
+}
+/*----------------------- 时钟部分  --------------------------*/
+.answer_content #time_content {
+    float:none;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+    #time_content #my_timer {
+        float:none;
+        width: 120px;
+        margin: 0 auto;
+    }
+
+#my_timer span {
+    display: block;
+    float: left;
+    height: 40px;
+    width: 30px;
+}
+
+#my_timer #dot {
+    background: url(../Img/time/dot.png) no-repeat;
+}
+
+#my_timer .timeIndex[data-index="9"] {
+    background: url(../Img/time/9.png) no-repeat;
+}
+
+#my_timer .timeIndex[data-index="8"] {
+    background: url(../Img/time/8.png) no-repeat;
+}
+
+#my_timer .timeIndex[data-index="7"] {
+    background: url(../Img/time/7.png) no-repeat;
+}
+
+#my_timer .timeIndex[data-index="6"] {
+    background: url(../Img/time/6.png) no-repeat;
+}
+
+#my_timer .timeIndex[data-index="5"] {
+    background: url(../Img/time/5.png) no-repeat;
+}
+
+#my_timer .timeIndex[data-index="4"] {
+    background: url(../Img/time/4.png) no-repeat;
+}
+
+#my_timer .timeIndex[data-index="3"] {
+    background: url(../Img/time/3.png) no-repeat;
+}
+
+#my_timer .timeIndex[data-index="2"] {
+    background: url(../Img/time/2.png) no-repeat;
+}
+
+#my_timer .timeIndex[data-index="1"] {
+    background: url(../Img/time/1.png) no-repeat;
+}
+
+#my_timer .timeIndex[data-index="0"] {
+    background: url(../Img/time/0.png) no-repeat;
+}
+
+/*----------------------- 提交部分  --------------------------*/
+.answer_content #submit_content {
+    float: left;
+    width: 30%;
+    height: 40px;
+    margin: 5px 35%;
+}
+
+@media (min-width: 768px) {
+    .answer_content #submit_content {
+        position: relative;
+        float: right;
+        right: -350px;
+        bottom: 50px;
+        width: 24%;
+        margin: 5px 43%;
+    }
+}
+
+.answer_content #submit_content input {
+    float: right;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    background-color: #9f9f9f;
+    border-color: #9f9f9f;
+}
+
+    .answer_content #submit_content input:hover {
+        background-color: #297FBF;
+        border-color: #297FBF;
+    }
+/*----------------------- 题目部分  --------------------------*/
+.answer_content #time {
+    font-size: 30px;
+}
+
+.answer_content .tab-content,
+.answer_content .tab-content .tab-pane,
+.answer_content .quesTab_group {
+    width: 100%;
+}
+
+    .answer_content .quesTab_group .ques {
+        font-size: 24px;
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.1;
+        color: inherit;
+        padding-bottom: 50px;
+    }
+
+.quesTab_group input {
+    position: absolute;
+    left: -24px;
+    z-index: -1;
+    opacity: 0;
+}
+
+.quesTab_group label {
+    font-size: 18px;
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+}
+
+    .quesTab_group label::before, .quesTab_group label::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+    .quesTab_group label:nth-of-type(1)::before,
+    .quesTab_group label:nth-of-type(1)::after {
+        content: 'A';
+    }
+
+    .quesTab_group label:nth-of-type(2)::before,
+    .quesTab_group label:nth-of-type(2)::after {
+        content: 'B';
+    }
+
+    .quesTab_group label:nth-of-type(3)::before,
+    .quesTab_group label:nth-of-type(3)::after {
+        content: 'C';
+    }
+
+    .quesTab_group label:nth-of-type(4)::before,
+    .quesTab_group label:nth-of-type(4)::after {
+        content: 'D';
+    }
+
+    .quesTab_group label::before {
+        background-color: #d1d1d1;
+        color: white;
+        font-size: 15px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .quesTab_group label::after {
+        background: #0d6fb8;
+        opacity: .2;
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        color: white;
+        font-size: 15px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .quesTab_group label:hover::after {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+        -webkit-transition: 0.5s;
+        -o-transition: 0.5s;
+        transition: 0.5s;
+    }
+
+.quesTab_group input {
+    position: absolute;
+    left: -24px;
+    z-index: -1;
+    opacity: 0;
+}
+
+    .quesTab_group input:checked + label::after {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+/*----------------------- 结果部分  --------------------------*/
+#result_content {
+    padding-top: 50px;
+}
+
+    #result_content .score {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+        #result_content .score span {
+            font-size: 24px;
+            color: #4485c1;
+        }
+
+    #result_content .ckda {
+        padding-left: 50px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    #result_content #again {
+        float: right;
+        width: 120px;
+        height: 40px;
+        font-size:18px;
+        border-radius: 6px;
+        margin-right: 20px;
+        color: white;
+        background-color: #9F9F9F;
+        border-color: #9F9F9F;
+    }
+
+        #result_content #again:hover {
+            background-color: #0d6fb8;
+        }
+
+
+    #result_content .myIcon {
+        position: relative;
+        margin-left: 50px;
+        margin-bottom: 50px;
+    }
+
+        #result_content .myIcon span {
+            padding-left: 30px;
+        }
+
+            #result_content .myIcon span.zqda::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background-color: #0d6fb8;
+            }
+
+            #result_content .myIcon span.cwda::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background-color: #db1818;
+            }
+
+    #result_content #solution_content,
+    #result_content #solution_content div {
+        float: none;
+    }
+
+    #result_content #solution_content span.red{
+        color:#db1818;
+    }
+
+#solution_content .quesTab_group label:hover::after {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+}
+
+#solution_content .quesTab_group.userAnswer_A label:nth-of-type(1)::before {
+    background-color: #db1818;
+}
+
+#solution_content .quesTab_group.userAnswer_B label:nth-of-type(2)::before {
+    background-color: #db1818;
+}
+
+#solution_content .quesTab_group.userAnswer_C label:nth-of-type(3)::before {
+    background-color: #db1818;
+}
+
+#solution_content .quesTab_group.userAnswer_D label:nth-of-type(4)::before {
+    background-color: #db1818;
+}
+
+#solution_content .quesTab_group.correct_A label:nth-of-type(1)::before {
+    background-color: #0d6fb8;
+}
+
+#solution_content .quesTab_group.correct_B label:nth-of-type(2)::before {
+    background-color: #0d6fb8;
+}
+
+#solution_content .quesTab_group.correct_C label:nth-of-type(3)::before {
+    background-color: #0d6fb8;
+}
+
+#solution_content .quesTab_group.correct_D label:nth-of-type(4)::before {
+    background-color: #0d6fb8;
+}
